@@ -1,5 +1,5 @@
-runtime: python39  # This should match your Python version
-instance_class: F2  # This defines the compute resources for your instances. F2 is a class with 1.2 GB memory.
+runtime: python39
+instance_class: F2
 env: standard 
 entrypoint: bash -c 'python manage.py migrate && gunicorn -b :$PORT toptechscore.wsgi'
 
@@ -15,10 +15,8 @@ env_variables:
   DB_NAME: "postgres1"
   DB_USER: "user1"
   DB_PASSWORD: "mqy%Z9~7-Y<fsJVn"
-  DB_HOST: "/cloudsql/toptechscore:us-central1:toptechscore-database"
+  DB_HOST: "35.184.196.3"  # Public IP address of your Cloud SQL instance
   DB_PORT: "5432"
 
-
 beta_settings:
-    cloud_sql_instances: toptechscore:us-central1:toptechscore-database
-
+  cloud_sql_instances: toptechscore:us-central1:toptechscore-database

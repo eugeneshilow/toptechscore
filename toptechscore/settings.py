@@ -78,20 +78,18 @@ WSGI_APPLICATION = "toptechscore.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import os
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres1',
-        'USER': 'user1',
-        'PASSWORD': 'mqy%Z9~7-Y<fsJVn',
-        'HOST': '/cloudsql/toptechscore:us-central1:toptechscore-database',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'postgres1'),
+        'USER': os.getenv('DB_USER', 'user1'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'mqy%Z9~7-Y<fsJVn'),
+        'HOST': os.getenv('DB_HOST', '35.184.196.3'),  # Public IP address of your Cloud SQL instance
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
-
-
 
 
 # Password validation
