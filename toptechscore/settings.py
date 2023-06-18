@@ -85,8 +85,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('DB_NAME', 'postgres1'),
         'USER': os.getenv('DB_USER', 'user1'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'mqy%Z9~7-Y<fsJVn'),
-        'HOST': os.getenv('DB_HOST', '35.184.196.3'),  # Public IP address of your Cloud SQL instance
+        'PASSWORD': os.getenv('DB_PASSWORD', 'k%<]5N?7,h`JEC;I'),
+        'HOST': '/cloudsql/toptechscore:us-central1:toptechscore-database',
         'PORT': os.getenv('DB_PORT', '5432'),
     }
 }

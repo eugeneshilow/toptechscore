@@ -8,7 +8,7 @@ print("Starting script...")
 # Define connection parameters
 postgres_db = os.getenv('DB_NAME', 'postgres1')
 postgres_user = os.getenv('DB_USER', 'user1')
-postgres_password = os.getenv('DB_PASSWORD', 'mqy%Z9~7-Y<fsJVn')
+postgres_password = os.getenv('DB_PASSWORD', 'k%<]5N?7,h`JEC;I')
 postgres_host = '35.184.196.3'  # Public IP address of your Cloud SQL instance
 postgres_port = '5432'
 

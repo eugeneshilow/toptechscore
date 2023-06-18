@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 # Define connection parameters
 postgres_db = 'postgres1'
 postgres_user = 'user1'
-postgres_password = 'mqy%Z9~7-Y<fsJVn'
+postgres_password = 'k%<]5N?7,h`JEC;I'
 postgres_host = 'localhost'  # This connects to your local Postgres instance
 postgres_port = '5432'
 

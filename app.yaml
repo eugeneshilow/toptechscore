@@ -14,9 +14,10 @@ env_variables:
   SECRET_KEY: "django-insecure-$u1a^(tm-r(!w=_@ro)#5m=+lv=e2$08!od=l#qq3sk%+p&7(w"
   DB_NAME: "postgres1"
   DB_USER: "user1"
-  DB_PASSWORD: "mqy%Z9~7-Y<fsJVn"
-  DB_HOST: "35.184.196.3"  # Public IP address of your Cloud SQL instance
+  DB_PASSWORD: "k%<]5N?7,h`JEC;I"
+  DB_HOST: "/cloudsql/toptechscore:us-central1:toptechscore-database"  # Unix socket path of your Cloud SQL instance
   DB_PORT: "5432"
 
 beta_settings:
   cloud_sql_instances: toptechscore:us-central1:toptechscore-database
+  
