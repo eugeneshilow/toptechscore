@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-$u1a^(tm-r(!w=_@ro)#5m=+lv=e2$08!od=l#qq3sk%+p&7(w"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'toptechscore.uc.r.appspot.com', 'toptechscore-2964bbedf69b.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'toptechscore.uc.r.appspot.com', 'toptechscore-2964bbedf69b.herokuapp.com', '.herokuapp.com']
 
 # Application definition
 
@@ -81,7 +82,7 @@ WSGI_APPLICATION = "toptechscore.wsgi.application"
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://user:password@localhost/dbname')
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
