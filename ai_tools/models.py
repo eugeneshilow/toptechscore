@@ -21,6 +21,7 @@ class AITool(models.Model):
     engagement = models.DecimalField(max_digits=5, decimal_places=3, null=True, validators=[MinValueValidator(0), MaxValueValidator(10)])
 
     class Meta:
+        db_table = 'aitool'  # Set the table name
         indexes = [
             models.Index(fields=['name',], name='name_idx'),
         ]
