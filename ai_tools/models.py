@@ -3,6 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class AITool(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=255, null=True)
     sub_category = models.CharField(max_length=255, null=True)
