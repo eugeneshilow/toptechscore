@@ -1,1 +1,2 @@
-web: gunicorn backend.toptechscore.wsgi
+web: gunicorn backend.backend.toptechscore.wsgi
+
