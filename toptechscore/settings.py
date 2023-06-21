@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-$u1a^(tm-r(!w=_@ro)#5m=+lv=e2$08!od=l#qq3sk%+p&7(w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'toptechscore.uc.r.appspot.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'toptechscore.uc.r.appspot.com', 'toptechscore-2964bbedf69b.herokuapp.com']
 
 # Application definition
 
@@ -81,14 +81,7 @@ WSGI_APPLICATION = "toptechscore.wsgi.application"
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME', 'postgres1'),
-        'USER': os.getenv('DB_USER', 'user1'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'k%<]5N?7,h`JEC;I'),
-        'HOST': '/cloudsql/toptechscore:us-central1:toptechscore-database',
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
+    'default': dj_database_url.config(default='postgres://user:password@localhost/dbname')
 }
 
 
