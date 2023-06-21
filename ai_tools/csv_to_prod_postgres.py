@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from sqlalchemy import create_engine
+from sqlalchemy.exc import SQLAlchemyError
 from urllib.parse import urlparse
 
 print("Starting script...")
@@ -33,6 +34,7 @@ try:
     print("Successfully connected to the database.")
 except Exception as e:
     print(f"Failed to connect to the database: {e}")
+    exit()
 
 # Define file path
 file_path = 'ai_tools/csv_files/AI Tools Database - Database - csv export.csv'
@@ -40,11 +42,21 @@ file_path = 'ai_tools/csv_files/AI Tools Database - Database - csv export.csv'
 print("Reading CSV file...")
 
 # Use pandas to read the CSV file
-df = pd.read_csv(file_path)
+try:
+    df = pd.read_csv(file_path)
+    print(f"Read {len(df)} rows from the CSV file.")
+except Exception as e:
+    print(f"Failed to read CSV file: {e}")
+    exit()
 
 print("Writing to database...")
 
 # Use pandas to write the dataframe to the PostgreSQL table
-df.to_sql('aitool', postgres_engine, if_exists='append', index=False)
+try:
+    df.to_sql('aitool', postgres_engine, if_exists='append', index=False)
+    print(f"Wrote {len(df)} rows to the database.")
+except SQLAlchemyError as e:
+    print(f"Failed to write to the database: {e}")
+    exit()
 
 print("Script completed.")
