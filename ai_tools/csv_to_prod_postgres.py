@@ -1,16 +1,24 @@
 import os
 import pandas as pd
 from sqlalchemy import create_engine
-import gcsfs
+from urllib.parse import urlparse
 
 print("Starting script...")
 
 # Define connection parameters
-postgres_db = os.getenv('DB_NAME', 'postgres1')
-postgres_user = os.getenv('DB_USER', 'user1')
-postgres_password = os.getenv('DB_PASSWORD', 'k%<]5N?7,h`JEC;I')
-postgres_host = '35.184.196.3'  # Public IP address of your Cloud SQL instance
-postgres_port = '5432'
+database_url = os.getenv('DATABASE_URL')
+
+if not database_url:
+    raise ValueError("Missing 'DATABASE_URL' environment variable")
+
+# Parse database URL
+url = urlparse(database_url)
+
+postgres_db = url.path[1:]  # Remove leading slash
+postgres_user = url.username
+postgres_password = url.password
+postgres_host = url.hostname
+postgres_port = url.port
 
 print("Creating database engine...")
 
@@ -19,7 +27,6 @@ postgres_engine = create_engine(f'postgresql+psycopg2://{postgres_user}:{postgre
 
 print("Database engine created.")
 
-
 # Check connection
 try:
     connection = postgres_engine.connect()
@@ -27,20 +34,13 @@ try:
 except Exception as e:
     print(f"Failed to connect to the database: {e}")
 
-# Define GCS file path
-gcs_file_path = 'gs://bucket-toptechscore/AI Tools Database - Database - csv export.csv'
+# Define file path
+file_path = 'ai_tools/csv_files/AI Tools Database - Database - csv export.csv'
 
-print("Creating GCS file system...")
-
-# Create a gcsfs object
-fs = gcsfs.GCSFileSystem(project='toptechscore')
-
-print("GCS file system created.")
 print("Reading CSV file...")
 
-# Use pandas to read the CSV file from GCS
-with fs.open(gcs_file_path) as f:
-    df = pd.read_csv(f)
+# Use pandas to read the CSV file
+df = pd.read_csv(file_path)
 
 print("Writing to database...")
 
