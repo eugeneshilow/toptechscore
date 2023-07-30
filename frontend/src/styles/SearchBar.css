@@ -1,0 +1,110 @@
+/* =============== */
+/* == SearchBar == */
+/* =============== */
+
+.search-title {
+    color: var(--color-white);
+    font-family: 'StapelBold', Arial, sans-serif;
+    font-size: var('--font-size-7');
+    font-weight: bold;
+
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.filter-items {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding-top: 8px;
+}
+  
+.filter-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 30%;
+    text-align: center;
+    background-color: var(--color-primary-light);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.filter-item:hover {
+    background-color: var(--color-primary-extralight);
+}
+
+.filter-item:active {
+    /* transform: translateY(2px); */
+}
+
+.filter-item.active {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.filter-icon {
+    position: absolute;
+    left: 10px;
+    height: 14px;
+    width: 14px;
+}
+
+.filter-text {
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 10px; /* adjust as needed */
+}
+
+.search-input {
+    background-color: white;
+}
+
+.search-input:active,
+.search-input:focus {
+  outline: none;
+}
+
+.search-section-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.filter-item.disabled {
+    /* Add your own styles */
+    color: var(--font-color-extralightgrey);
+    cursor: not-allowed;
+}
+
+.filter-item.disabled:active {
+    background-color: var(--color-red);
+}
+
+.email-input {
+    font-size: 16px;
+  
+    position: relative; 
+    box-sizing: border-box;
+  
+    background: var(--color-extralightgrey);
+    height: 45px;
+    padding-left: 8px;
+    margin: 8px 2px 8px 8px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s;
+    direction: ltr;
+}

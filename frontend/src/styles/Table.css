@@ -1,0 +1,282 @@
+/* ================= */
+/* == TableHeader == */
+/* ================= */
+
+.title-section {
+    margin-bottom: 20px;
+}
+
+.subtext {
+    font-size: 16px;
+    color: #888888;
+    margin-top: 0px; /* remove top margin */
+    margin-left: 2px; /* add left margin */
+}
+
+.tag-section-sticky {
+    position: sticky;
+    top: 64px;
+    z-index: 1000;
+}
+
+.tag-section {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    background-color: var(--color-extralightgrey); /* Add this line to keep the background while scrolling */
+}
+
+.tag-section::-webkit-scrollbar { 
+    display: none; /* For Chrome, Safari and Opera */
+}
+
+.tag, .tag-selected {
+    font-size: var(--font-size-0);
+    font-weight: 600;
+
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 10px 0 0;
+    border-radius: 12px;
+    /* border: 1px solid #D7D9E0; */
+    background-color: var(--color-extralightgrey);
+    color: #000;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #EDEEF2;
+    border-color: #CED0D9;
+}
+
+.tag-selected {
+    background-color: var(--color-primary-dark);
+    color: #fff;
+    border-color: var(--color-primary-dark);
+}
+
+.tag-selected:hover {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+
+/* TableHeader styles */
+.info {
+    display: flex;
+    align-items: center;
+}
+  
+.info-icon {
+    font-size: 12px; /* Adjust as needed */
+    margin-left: 5px; /* Adjust as needed */
+    color: lightgrey;
+}
+
+/* =========== */
+/* == Table == */
+/* =========== */
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0px;
+    background-color: #ffffff;
+    padding: 20px;
+    /* border-top: 1px solid #EDEFF2; */
+}
+
+.table th.column-icon,
+.table td.column-icon {
+    width: 24px; /* SVG icon */
+}
+
+.table th.column-number,
+.table td.column-number {
+    width: 30px; /* # */
+}
+
+.table th.column-name,
+.table td.column-name {
+    width: 200px; /* Name */
+}
+
+.table th.column-es-score,
+.table td.column-es-score {
+    width: 100px; /* ES Score */
+}
+
+.table th.column-popularity,
+.table td.column-popularity {
+    width: 100px; /* Popularity */
+}
+
+.table th.column-engagement,
+.table td.column-engagement {
+    width: 100px; /* Engagement */
+}
+
+.table th.column-category,
+.table td.column-category {
+    width: 150px; /* Category */
+}
+
+.table th.column-sub-category,
+.table td.column-sub-category {
+    width: 150px; /* Subcategory */
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 10px;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0; /* Stick to the top */
+    padding: 12px 8px;
+    text-align: left;
+    background-color: #ffffff; /* change background color to white */
+    color: #000;
+    font-weight: 600; /* make the font slightly bolder */
+    font-size: 12px; /* make the font size a bit smaller than the rest of the table */
+    z-index: 2; /* Ensures header is displayed above table rows */
+    border: none;
+}
+
+.table tbody td {
+    box-sizing: border-box;
+    padding: 16px 8px;
+    text-align: left;
+    font-size: var(--font-size-2);
+}
+
+.table tr {
+    border-top: 1px solid rgba(211, 211, 211, 0.214);
+}
+
+.table tr:first-child {
+    border-top: none;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.214);
+}
+
+.highlight {
+    padding: 4px 7px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    font-weight: 600;
+    font-size: var(--font-size-2);
+    color: white;
+}
+
+.tool_name {
+    font-weight: 500;
+}
+
+.tool_id {
+    color: darkslategrey;
+}
+
+.tool-favicon {
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.tool-name-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;      
+}
+  
+.tool-name-container img {
+    margin-right: 10px; /* Adjust this value as needed */
+}
+
+@media (max-width: 768px) {
+    .table thead th,
+    .table thead th.column-es-score {
+        display: none;
+    }
+
+    .table thead th {
+        position: static; /* Override the sticky positioning on mobile */
+    }
+    
+    .table th.column-number,
+    .table td.column-number {
+        width: auto;
+        padding-right: 8px;
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+    .table th.column-name,
+    .table td.column-name {
+        width: auto;
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+    
+    .table th.column-es-score,
+    .table td.column-es-score {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-align: right; /* Align content to the right */
+        box-sizing: border-box;/* Include padding and border in element's total width and height */
+    }
+
+    .table tbody td.column-es-score .button-favorite {
+        order: 2; /* Ensures the heart SVG is at the bottom */
+    }
+
+    
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .mobile-es-score {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .table tbody td.tool_name {
+        color: var(--font-color-mediumgrey);
+    }
+
+    .table tbody th.column-number,
+    .table tbody td.column-number {
+        font-size: var(--font-size-1);
+        font-weight: 600;
+        
+        vertical-align: top;
+        text-align: left;
+        margin-left: 0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .button-favorite svg {
+        height: 22px;
+        width: 22px;
+        padding-top: 12px;
+        padding-right: 5px;
+    }
+
+    .sub-category-mobile {
+        font-size: var(--font-size-1);
+        color: var(--font-color-extralightgrey);
+    }
+}

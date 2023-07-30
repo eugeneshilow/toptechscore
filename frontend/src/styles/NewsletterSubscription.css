@@ -1,0 +1,54 @@
+.newsletter-container {
+    margin-top: 20px;
+    background-color: #f6f6f6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+  
+.newsletter-content {
+    max-width: 800px;
+    text-align: center;
+}
+  
+.newsletter-title, .newsletter-subtitle {
+    margin: 0;
+}
+  
+.newsletter-title {
+    color: #333;
+    font-size: 24px;
+}
+  
+.newsletter-subtitle {
+    color: #666;
+    font-size: 18px;
+}
+  
+.newsletter-description {
+    color: #999;
+    margin: 10px 0 20px;
+}
+  
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+}
+  
+.newsletter-input {
+    width: 60%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+  
+.newsletter-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #13c783;
+    color: white;
+    cursor: pointer;
+}
+

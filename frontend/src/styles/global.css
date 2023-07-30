@@ -1,0 +1,61 @@
+:root {
+    --primary-color: #171719;
+    --color-primary-dark: #000000;
+    --color-primary-light: #2A2A33;
+    --color-primary-extralight: #515154;
+    --secondary-color: #13c783;
+
+    --color-green: #13c783;
+    --color-red: #FA1056;
+    --color-blue: #007AFE;
+    
+    --color-white: #ffffff;
+    --color-2extralightgrey: #FBFBFD;
+    --color-extralightgrey: #F5F5F7;
+    --color-verylightgrey: #E3EBF3;
+    --color-lightgrey: #D2D2D7;
+    --color-grey: #515154;
+    --color-extragrey: #2A2A33;
+    --color-dark: #202025;
+    --color-black: #171719;
+    --color-fullblack: #000000;
+    
+    --font-color-primary: #1D1D1F;
+    --font-color-white: #ffffff;
+    --font-color-2extralightgrey: #CECED2;
+    --font-color-extralightgrey: #86868B;
+    --font-color-lightgrey: #6E6E75;
+    --font-color-mediumgrey: #424245;
+    --font-color-extragrey: #1D1D1F;
+    
+
+    --font-size--1: 10px;
+    --font-size-0: 12px;
+    --font-size-1: 14px;
+    --font-size-2: 15px;
+    --font-size-3: 17px;
+    --font-size-4: 21px;
+    --font-size-5: 26px;
+    --font-size-6: 32px;
+    --font-size-7: 40px;
+    --font-size-8: 64px;
+}
+
+[data-theme="dark"] {
+    --color-primary: #007AFE;
+    --color-primary2: #171719;
+    --color-button-background: #ffffff;
+    
+    --font-color-primary2: #CECED2;
+    --font-color-secondary2: #ffffff;
+}
+
+
+
+/* .my-component {
+    background-color: var(--primary-color);
+} */
+
+
+/* blue: #005BFF ozon */
+/* blue: #0B73FE aviasales */

@@ -1,0 +1,35 @@
+.breadcrumbs-container {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    margin-top: 45px;
+    padding: 10px 0;
+    /* border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3; */
+}
+
+.breadcrumbs-arrow {
+    color: var(--font-color-lightgrey);
+    font-size: var(--font-size-1);
+    margin: 0 5px;
+}
+  
+.breadcrumbs-text {
+    color: var(--font-color-mediumgrey);
+    font-size: var(--font-size-1);
+}
+
+.breadcrumbs-logo {
+    margin-left: 5px;
+    display: inline-block;
+    width: 50px; 
+    height: 12px;
+    background-image: url('/findex-mediumgrey-removebg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+  
+.breadcrumbs-logo:hover {
+    background-image: url('/findex-almostblack-removebg.png');
+}

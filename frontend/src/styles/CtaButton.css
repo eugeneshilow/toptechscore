@@ -1,0 +1,354 @@
+/* Container Styles */
+.ctabutton4-container {
+  position: relative; 
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primary2);
+  border-radius: 8px;
+  margin: 5px;
+}
+
+/* Image Text Container Styles */
+.ctabutton4-container-imagetext {
+  display: flex;
+  align-items: center;
+  width: calc(100vw - 118px);
+  right: 106px;
+  transition: transform 0.3s;
+}
+
+.ctabutton4-container-imagetext.out-of-screen {
+  transform: translateX(-100%);
+}
+
+/* Image Section Styles */
+.ctabutton4-image-section {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  margin: 8px;
+  background-image: url('https://res.cloudinary.com/dvtddwnjn/image/upload/v1689854652/tts/tts-production/eugeneshilow/IMG_6226-4_pw2tbs.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Text Section Styles */
+.ctabutton4-text-section {
+  color: var(--font-color-primary2);
+  font-size: var(--font-size-1);
+  flex-grow: 1; 
+  margin: 0px;
+}
+
+/* Common Button Styles */
+.ctabutton4 {
+  position: relative;
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-size: var(--font-size-2);
+  font-weight: 600;
+  height: 45px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;    
+  cursor: pointer;
+  letter-spacing: 1px;    
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box; 
+}
+
+/* Learn Button Styles */
+.button-learn {
+  color: var(--font-color-secondary2);
+  background: var(--color-primary);
+  width: 90px;
+}
+
+/* Button Section Styles */
+.ctabutton4-button-section {
+  position: relative; 
+  display: flex;  
+  transition: transform 0.3s;
+  justify-self: end;
+}
+
+.ctabutton4-button-section.initial-position {
+  transform: translateX(0%);
+}
+
+.ctabutton4-button-section.button-transition {
+  transform: translateX(-100%);
+}
+
+/* Send Email Section Styles */
+.ctabutton4-section-sendemail {
+  position: relative; 
+  transition: transform 0.3s;
+}
+
+.ctabutton4-section-sendemail.initial-position {
+  transform: translateX(100%);
+}
+
+.ctabutton4-section-sendemail.button-transition {
+  transform: translateX(0%);
+}
+
+.ctabutton4-section-sendemail.out-of-screen {
+  transform: translateX(-100%);
+}
+
+/* Send Email Button Styles */
+.send-email {
+  color: var(--font-color-secondary2);
+  
+  background-color: var(--color-green);  
+  width: 90px;
+  transition: transform 0.3s, opacity 0.3s;
+  transform: scaleX(0);
+  transform-origin: right;
+  opacity: 0;
+}
+
+.send-email.initial-position {
+  transform: scaleX(0);
+}
+
+.send-email.button-transition {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.send-email.out-of-screen {
+  transform: translateX(-100%);
+}
+
+/* Email Input Styles */
+.ctabutton4-container-emailinput {
+  position: absolute;
+  right: 106px;
+  width: calc(100vw - 118px);
+  display: flex;
+  align-items: center;
+  direction: rtl;
+  transition: transform 0.3s;
+}
+
+.ctabutton4-container-emailinput.out-of-screen {
+  transform: translateX(-100%);
+}
+
+.email-input {
+  font-size: 16px;
+
+  position: relative; 
+  box-sizing: border-box;
+
+  background: var(--color-extralightgrey);
+  height: 45px;
+  padding-left: 8px;
+  margin: 8px 2px 8px 8px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s;
+  direction: ltr;
+}
+
+.email-label {
+  position: absolute;
+  color: var(--font-color-extralightgrey);
+  pointer-events: none;
+  padding: 0 16px;
+  transition: font-size 0.3s, transform 0.3s;
+  left: 0;
+  opacity: 0;
+}
+
+.email-label.show {
+  opacity: 1;
+}
+
+.email-label.show {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.email-input.focused + .email-label {
+  color: var(--font-color-extragrey);
+  font-size: var(--font-size--1);
+  transform: translateY(-80%);  
+  padding-top: 12px;
+}
+
+.email-input.focused::placeholder {
+  color: var(--font-color-extragrey);
+  font-size: var(--font-size-0);
+  transform: translateY(-120%);  
+} */
+
+.email-input:hover {
+  background: var(--color-verylightgrey);
+}
+
+.email-input:active,
+.email-input:focus {
+  outline: none;
+  background: white;
+  padding-top: 12px; 
+}
+
+
+.email-input.button-transition {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.email-example {
+  position: absolute;
+  color: var(--font-color-extralightgrey); /* adjust to match your placeholder color */
+  pointer-events: none;
+  padding: 0 16px; /* match the input padding */
+  padding-top: 12px; 
+  transition: opacity 0.3s;
+  opacity: 0;
+  left: 0;
+}
+
+.email-example.show {
+  opacity: 1;
+}
+
+/* Hide Button Styles */
+.hide-button {
+display: none;
+}
+
+/* Newsletter Agreement Styles */
+.newsletter-agreement {
+  color: var(--font-color-primary2);
+  font-size: var(--font-size-0);
+  margin-left: 12px;
+  margin-bottom: 8px;
+}
+
+/* Subcontainer 1 Styles */
+.ctabutton4-subcontainer1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+}
+
+.ctabutton4-subcontainer11 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ctabutton4-subcontainer12 {
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.ctabutton4-subcontainer12.show {
+  max-height: 100px;
+  opacity: 1;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none;
+}
+
+/* Email Instructions Styles */
+.ctabutton4-container-emailinstructions {
+  position: absolute;
+  display: flex;
+  right: 151px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100vw - 163px);
+  align-items: center;
+  direction: rtl;
+  visibility: hidden; /* initially hidden */
+}
+
+.email-instructions {
+  color: var(--font-color-primary2);
+  font-size: var(--font-size-2);
+  padding: 0px;
+  margin: 8px 2px 8px 8px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s, visibility 0.3s;
+  direction: ltr;
+  opacity: 0;
+}
+
+.email-instructions.show {
+  visibility: visible;
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Open Gmail Styles */
+.ctabutton4-container-opengmail {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: right;
+  direction: rtl;
+  visibility: hidden; /* initially hidden */
+}
+
+.ctabutton4-container-opengmail.show {
+  visibility: visible;
+}
+
+.button-checkgmail {
+  color: var(--color-extralightgrey);
+  background: var(--color-grey);
+  width: 135px;
+  transition: transform 0.3s, opacity 0.3s;
+  transform: scaleX(0);
+  transform-origin: right;
+  margin-left: auto; /* push the button to the right side */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-checkgmail.button-transition {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.gmail-icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+}

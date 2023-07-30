@@ -1,0 +1,37 @@
+# .gitignore file
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Django specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media
+
+# Postgres specific
+*.sql
+*.dump
+
+# React / Node specific
+/node_modules
+/build
+/.env
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Virtual Environment
+venv/
+*.venv
+*.pyenv
+.env
+
+# IDE specific
+.idea/
+.vscode/
+
+# MacOS specifics
+.DS_Store

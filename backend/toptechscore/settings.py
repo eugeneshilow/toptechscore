@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +30,13 @@ SECRET_KEY = "django-insecure-$u1a^(tm-r(!w=_@ro)#5m=+lv=e2$08!od=l#qq3sk%+p&7(w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'toptechscore.uc.r.appspot.com', 'toptechscore-2964bbedf69b.herokuapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'toptechscore.uc.r.appspot.com', 'toptechscore-2964bbedf69b.herokuapp.com', '.herokuapp.com', '172.20.10.2', '172.20.10.1', '172.20.10.3', '6c98-2a0d-b201-10e0-a29b-851b-add2-4643-8250.eu.ngrok.io', '192.168.1.98']
 
 # Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",
+    'django_addanother',
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -131,8 +135,14 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
+    "http://172.20.10.1:3000",
+    "http://172.20.10.2:3000",
+    "http://172.20.10.3:3000",
+    "http://192.168.1.98:3000",
     # add any other origins that need access to your backend
 ]
+
+
 
 
 

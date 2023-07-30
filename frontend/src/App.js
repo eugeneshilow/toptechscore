@@ -1,89 +1,86 @@
-import './Table.css';
+// App.js
+
 import React, { useState, useEffect } from 'react';
-import { Table, Popover } from 'antd';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProductPage from './components/ProductPage';
+import Main from './components/Main';
+import Settings from './components/Settings';
+import NewsletterConfirmation from './components/NewsletterConfirmation';
+import { ThemeProvider } from './components/ThemeContext';
+
 
 function App() {
   const [tools, setTools] = useState([]);
+  const [filteredTools, setFilteredTools] = useState([]);
+  
+  // Set 'Top 250' as the default selected category
+  const [selectedCategory, setSelectedCategory] = useState('Top 250');
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/tools/')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // add console log to check if data is fetched correctly
-            setTools(data);
-        });
-  }, []);
+    let isMounted = true;  
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/tools/`)
+      .then(response => response.json())
+      .then(data => {
+        if (isMounted) {
+          const sortedTools = data.sort((a, b) => b.tts - a.tts);
+          setTools(sortedTools);
+          if (selectedCategory === 'Top 250') {
+            setFilteredTools(sortedTools.slice(0, 250));
+          } else {
+            setFilteredTools(sortedTools.filter(tool => tool.category === selectedCategory));
+          }
+        }
+      })
+      .catch(error => console.error(error));
+  
+    return () => {
+      isMounted = false;
+    };
+  }, [selectedCategory]);  
 
-  const columns = [
-    {
-      title: '#',
-      key: 'index',
-      render: (text, record, index) => index + 1,
-    },
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'ES Score',
-      dataIndex: 'tts',
-      key: 'tts',
-      sorter: (a, b) => a.tts - b.tts, 
-      render: tts => (
-        <span style={{backgroundColor: '#13C783', padding: '5px 10px', borderRadius: '5px', color: 'white'}}>
-          {tts}
-        </span>
-      ),
-    },
-    {
-      title: 'Popularity',
-      dataIndex: 'popularity',
-      key: 'popularity',
-      sorter: (a, b) => a.tts - b.tts, 
-      render: popularity => (
-        <Popover content={`Popularity score: ${"test"}`}>
-          <span>{popularity}</span>
-        </Popover>
-      )
-    },
-    {
-      title: 'Engagement',
-      dataIndex: 'engagement',
-      key: 'engagement',
-      sorter: (a, b) => a.tts - b.tts,
-      render: engagement => (
-        <Popover content={`Engagement score: ${"test2"}`}>
-          <span>{engagement}</span>
-        </Popover>
-      )
-    },
-    {
-      title: 'Category',
-      dataIndex: 'category',
-      key: 'category',
-    },
-    {
-      title: 'Sub-category',
-      dataIndex: 'sub_category',
-      key: 'sub_category',
-    },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
-  ];
+  const uniqueCategories = ['Top 250', ...new Set(tools.map(tool => tool.category))];
 
-  console.log(tools); // add console log to check if tools state is updated correctly
+  const handleTagClick = (category) => {
+    setSelectedCategory(category);
+    if (category === 'Top 250') {
+      const top250Tools = [...tools].sort((a, b) => b.tts - a.tts).slice(0, 250);
+      setFilteredTools(top250Tools);
+    } else {
+      setFilteredTools(tools.filter(tool => tool.category === category));
+    }
+  };
 
   return (
-    <Table
-      columns={columns}
-      dataSource={tools}
-      rowKey="id"
-      pagination={{ pageSize: 100, showSizeChanger: false }}
-    />
+    <ThemeProvider>
+      <Router>
+          <div>
+              <Routes>
+                  <Route path="/" element={
+                      <Main 
+                          handleTagClick={handleTagClick} 
+                          selectedCategory={selectedCategory} 
+                          uniqueCategories={uniqueCategories} 
+                          filteredTools={filteredTools} 
+                      />
+                  } />
+                  <Route path="/aitools/:toolName" element={
+                      <>
+                          <ProductPage tools={tools} />
+                      </>
+                  } />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/newsletter-confirmation" element={
+                    <NewsletterConfirmation 
+                      handleTagClick={handleTagClick} 
+                      selectedCategory={selectedCategory} 
+                      uniqueCategories={uniqueCategories} 
+                      filteredTools={filteredTools} 
+                    />
+                  } />
+              </Routes>
+          </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -1,0 +1,279 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0.5rem 1rem; */
+    position: relative;
+    padding: 16px 0;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+  
+.logo {
+    width: 100px;
+    padding-bottom: 4px;
+}
+
+.logo-menu-wrapper {
+    display: flex;
+    flex-direction: column; /* stack the logo and menu vertically by default */
+    align-items: center; /* center the logo and menu by default */
+}
+
+.signup-btn {
+    color: white;
+    border: 1px solid #C0C0C0; 
+    background: transparent;
+    border-radius: 8px; 
+    padding: 2px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold; 
+    transition: border-color 0.4s, transform 0.2s, opacity 0.2s;
+    cursor: pointer;
+    outline: none;
+    margin-right: 5px;
+}
+
+.signup-btn:hover {
+    border-color: white;  /* white border on hover */
+}
+
+.signup-btn:active {
+    transform: translateY(4px);
+    opacity: 0.8;
+}
+
+.actions-container {
+    display: flex;
+}  
+
+.user-icon {
+    width: 18x;
+    height: 18px;
+}
+.user-icon,
+.world-icon,
+.hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-right: 0px;
+    margin-left: 5px;
+    padding-right: 0px;
+}
+
+.hamburger-menu {
+    z-index: 1010; 
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-2extralightgrey);
+    overflow-y: auto;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out;
+    z-index: 1010;
+    display: flex;
+    justify-content: space-between; /* separate the items vertically */
+    align-items: flex-start; /* start the items at the top */
+    padding: 2em; /* add some padding around the items */
+}
+
+
+.menu-items {
+    gap: 2rem;  /* increase the gap for better visual separation */
+    text-align: center;  /* center the text in each item */
+}
+
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: var(--font-size-5);
+    font-weight: 600;
+    margin-left: 45px; /* quick fix */
+}
+
+.menu-show {
+    transform: translateY(0);
+    padding: 0;
+}
+
+.menu-items-open {
+    position: absolute;
+    top: 0;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    color: black;   
+}
+
+.menu-item-open {
+    /* styles for .menu-item when the menu is open */
+    color: black;
+}
+
+.header-socialmedialinks {
+    margin-top: auto; 
+    margin-bottom: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .hamburger-menu,
+    .header-socialmedialinks {
+      display: none;
+    }
+  
+    .header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-top: 25px;
+    }
+
+    nav.menu {
+        padding: 0;    
+        margin-left: 30px;
+    }
+
+    .user-icon,
+    .world-icon {
+        margin-left: 15px;
+    }
+
+    .logo-menu-wrapper {
+        flex-direction: row; /* align the logo and menu horizontally on larger screens */
+        justify-content: flex-start; /* align the logo and menu to the start (left) on larger screens */
+    }
+
+    .menu-content {
+      display: initial;
+      justify-content: initial;
+      height: initial;
+      width: initial;
+    }
+  
+    .menu {
+        position: relative;
+        height: auto;
+        background-color: transparent;
+        transform: translateY(0);
+    }
+  
+    .menu-items {
+        /* display: flex;
+        justify-content: flex-start;
+        align-items: flex-start; */
+        position: relative;
+        left: 0;
+        flex-direction: row;
+    }
+  
+    .menu-item {
+        font-size: var(--font-size-3);
+        z-index: 1011;
+    }
+  }
+  
+/* ======================= */
+/* == ProductPageHeader == */
+/* ======================= */
+
+.product-page-header {
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-container {
+    position: relative;
+    flex-grow: 1;
+}
+  
+.search-bar {
+    padding: 6px 40px 6px 20px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: var(--font-size-3);
+    color: #333;
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+}
+
+.search-bar::placeholder {
+    color: var(--font-color-extralightgrey);
+    opacity: 1;
+    padding-left: 14px;
+}
+  
+.search-bar:focus {
+    border: none;
+    outline: none;
+    background-color: #f2f2f2;
+}
+
+.icon-heart {
+    margin-left: 78px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    width: 36px;
+    height: 36px;
+}
+
+.icon-arrowback {
+    margin-right: 12px;
+    margin-left: 17px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon-share {
+    margin-left: 16px;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+}
+
